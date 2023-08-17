@@ -21,7 +21,6 @@ export PATH=${PATH}:${LOCAL_BIN}:${CARGO_BIN}:${BUN_BIN}:${EMSDK}
 
 ${HOME}/.config/wsl/ssh-agent-relay start
 
-
 [[ -f ${HOME}/.ssh/wsl-ssh-agent.sock ]] || touch ${HOME}/.ssh/wsl-ssh-agent.sock
 export SSH_AUTH_SOCK=${HOME}/.ssh/wsl-ssh-agent.sock
 
@@ -30,26 +29,8 @@ export SSH_AUTH_SOCK=${HOME}/.ssh/wsl-ssh-agent.sock
 # Terminal/Shell.
 #------------------------------------------------------------------------------------
 
-# Vim keybindings
+# Use Vim keybindings.
 bindkey -v
-
-
-# Antidote ZSH plugin manager.
-
-# Clone antidote if necessary.
-[[ -d ${HOME}/.antidote ]] || git clone https://github.com/mattmc3/antidote ${HOME}/.antidote
-
-# Set the name of the static .zsh plugins file antidote will generate.
-zsh_plugins=${HOME}/.zsh_plugins.zsh
-
-# Ensure you have a .zsh_plugins.txt file where you can add plugins.
-[[ -f ${zsh_plugins:r}.txt ]] || touch ${zsh_plugins:r}.txt
-
-# Create an amazing Zsh config using antidote plugins.
-source ${HOME}/.antidote/antidote.zsh
-
-antidote load
-
 
 #------------------------------------------------------------------------------------
 # Environment.
@@ -57,19 +38,28 @@ antidote load
 
 . "$HOME/.cargo/env"
 
-# source the dircolors to set the colors for ls
+# Source dircolors to set the colors used for `ls`.
 eval "$(coreutils dircolors ~/.config/dircolors/nord.dircolors)"
 
-# start the node environment managed by fnm
+# Start the node environment managed by fnm.
 eval "$(fnm env --use-on-cd)"
 
-# init starship prompt
+# Load the shell plugin manager.
+eval "$(sheldon source)"
+
+# Initialize Starship prompt.
 eval "$(starship init zsh)"
 
 
 #------------------------------------------------------------------------------------
 # Aliases.
 #------------------------------------------------------------------------------------
+
+# Always use LSDeluxe
 alias ls=lsd
+
+# `clip.exe` is from Windows's System32 folder.
 alias clip=clip.exe
+
+# `explorer.exe` is from Windows's System32 folder.
 alias exp=explorer.exe
