@@ -82,9 +82,6 @@ local function setup_servers()
 
     -- Show code actions, e.g. "quick fixes".
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
-
-    -- Format the file
-    vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
   end
 
   -- Get the default LSP capabilities for Nvim's LSP client.
