@@ -19,6 +19,8 @@ export PATH=${PATH}:${LOCAL_BIN}:${CARGO_BIN}:${BUN_BIN}:${EMSDK}
 #------------------------------------------------------------------------------------
 # $HOME/.config/wsl/discord-relay
 
+# Where nipiperelay is located.
+# If you don't have it, see: https://github.com/jstarks/npiperelay#building-npiperelayexe
 export NPIPERELAY=/mnt/c/WSL/npiperelay.exe
 
 ${HOME}/.config/wsl/ssh-agent-relay start
