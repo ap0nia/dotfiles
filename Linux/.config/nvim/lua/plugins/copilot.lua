@@ -1,9 +1,7 @@
 return {
-  {
-    "zbirenbaum/copilot.lua",
+  "zbirenbaum/copilot.lua",
 
-    config = function()
-      require('config.plugins.copilot').setup()
-    end
-  }
+  config = function()
+    require('config.plugins.copilot').setup()
+  end
 }

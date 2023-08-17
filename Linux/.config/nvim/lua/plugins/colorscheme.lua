@@ -1,6 +1,7 @@
 return {
   {
     'catppuccin/nvim',
+
     config = function()
       -- Load the colorscheme.
       vim.cmd.colorscheme "catppuccin-mocha"
