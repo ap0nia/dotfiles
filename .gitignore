@@ -1,0 +1,9 @@
+#####################################################################################
+# Operating System
+#####################################################################################
+
+## MacOS folder settings. https://en.wikipedia.org/wiki/.DS_Store
+.DS_Store
+
+## Windows folder icon settings. https://learn.microsoft.com/en-us/windows/win32/shell/how-to-customize-folders-with-desktop-ini#use-a-desktopini-file
+Desktop.ini

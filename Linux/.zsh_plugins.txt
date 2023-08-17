@@ -1,0 +1,5 @@
+zsh-users/zsh-autosuggestions
+
+zsh-users/zsh-syntax-highlighting
+
+catppuccin/zsh-syntax-highlighting path:themes/catppuccin_frappe-zsh-syntax-highlighting.zsh
