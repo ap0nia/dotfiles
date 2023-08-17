@@ -4,5 +4,6 @@
   "Lua.workspace.ignoreDir": [
     "undodir",
     "lua-language-server"
-  ]
+  ],
+    "workspace.checkThirdParty": false
 }
