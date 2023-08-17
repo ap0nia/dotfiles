@@ -19,6 +19,8 @@ export PATH=${PATH}:${LOCAL_BIN}:${CARGO_BIN}:${BUN_BIN}:${EMSDK}
 #------------------------------------------------------------------------------------
 # $HOME/.config/wsl/discord-relay
 
+export NPIPERELAY=/mnt/c/WSL/npiperelay.exe
+
 ${HOME}/.config/wsl/ssh-agent-relay start
 export SSH_AUTH_SOCK=${HOME}/.ssh/wsl-ssh-agent.sock
 

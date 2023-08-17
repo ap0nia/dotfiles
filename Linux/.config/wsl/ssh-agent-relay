@@ -14,7 +14,7 @@
 # exec 2> >(tee -a -i "$HOME/error.log")
 
 #### Assuming ~/winhome links to %USERPROFILE on Windows side
-RELAY_BIN="/mnt/c/WSL/npiperelay.exe"
+RELAY_BIN=${NPIPERELAY}
 
 PIDFILE="${HOME}/.ssh/wsl-ssh-agent-relay.pid"
 WSL_AGENT_SSH_SOCK="${HOME}/.ssh/wsl-ssh-agent.sock"
