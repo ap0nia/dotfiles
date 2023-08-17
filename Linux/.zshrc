@@ -34,6 +34,9 @@ export SSH_AUTH_SOCK=${HOME}/.ssh/wsl-ssh-agent.sock
 # Use Vim keybindings.
 bindkey -v
 
+autoload -Uz compinit
+compinit
+
 #------------------------------------------------------------------------------------
 # Environment.
 #------------------------------------------------------------------------------------
