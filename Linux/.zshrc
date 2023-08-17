@@ -20,8 +20,6 @@ export PATH=${PATH}:${LOCAL_BIN}:${CARGO_BIN}:${BUN_BIN}:${EMSDK}
 # $HOME/.config/wsl/discord-relay
 
 ${HOME}/.config/wsl/ssh-agent-relay start
-
-[[ -f ${HOME}/.ssh/wsl-ssh-agent.sock ]] || touch ${HOME}/.ssh/wsl-ssh-agent.sock
 export SSH_AUTH_SOCK=${HOME}/.ssh/wsl-ssh-agent.sock
 
 

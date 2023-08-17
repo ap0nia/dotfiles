@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# https://github.com/rupor-github/wsl-ssh-agent
+
 #### Add following lines to your shell rc file (.zshrc .bashrc)
 # ${HOME}/.local/bin/wsl-ssh-agent-relay start
 # export SSH_AUTH_SOCK=${HOME}/.ssh/wsl-ssh-agent.sock

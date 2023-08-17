@@ -2,44 +2,14 @@ local lspkind = require('lspkind')
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 
-local thick_sharp_borders = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" }
-local double_sharp_borders = { "╔", "═", "╗", "║", "╝", "═", "╚", "║" }
+-- local thick_sharp_borders = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" }
+-- local double_sharp_borders = { "╔", "═", "╗", "║", "╝", "═", "╚", "║" }
 local thin_rounded_borders = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
-
-local vscode_icons = {
-  Text = '  ',
-  Method = '  ',
-  Function = '  ',
-  Constructor = '  ',
-  Field = '  ',
-  Variable = '  ',
-  Class = '  ',
-  Interface = '  ',
-  Module = '  ',
-  Property = '  ',
-  Unit = '  ',
-  Value = '  ',
-  Enum = '  ',
-  Keyword = '  ',
-  Snippet = '  ',
-  Color = '  ',
-  File = '  ',
-  Reference = '  ',
-  Folder = '  ',
-  EnumMember = '  ',
-  Constant = '  ',
-  Struct = '  ',
-  Event = '  ',
-  Operator = '  ',
-  TypeParameter = '  ',
-}
 
 local M = {}
 
 function M.setup()
-  lspkind.init({
-    symbol_map = vscode_icons
-  })
+  lspkind.init({ preset = 'codicons' })
 
   cmp.setup({
     -- Use luasnip as the completion source.
