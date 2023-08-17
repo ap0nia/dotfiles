@@ -18,12 +18,11 @@ local function ensure_lazy_installed()
 end
 
 local function init()
+  require('config').setup()
+
   ensure_lazy_installed()
 
   require('lazy').setup('plugins')
-
-  require('config').setup()
-
 end
 
 init()

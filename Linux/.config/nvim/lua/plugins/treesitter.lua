@@ -8,8 +8,8 @@ return {
 
   build = ":TSUpdate",
 
-  config = function () 
-    require("nvim-treesitter.configs").setup({
+  config =  function ()
+    require('nvim-treesitter.configs').setup({
       ensure_installed = {
         "c",
         "lua",
@@ -18,15 +18,18 @@ return {
         "typescript",
         "svelte"
       },
+
       sync_install = false,
+
       highlight = {
         enable = true,
         disable = is_large_buffer
       },
+
       indent = {
         enable = true,
         disable = is_large_buffer
       },
     })
-  end
+  end,
 }

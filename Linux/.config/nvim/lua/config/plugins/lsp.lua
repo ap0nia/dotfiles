@@ -1,8 +1,12 @@
+local lspconfig = require('lspconfig')
 local mason = require('mason')
 local masonLspConfig = require('mason-lspconfig')
+local neodev = require('neodev')
 
 -- Setup the plugins.
 local function setup_plugins()
+  neodev.setup()
+
   mason.setup()
 
   masonLspConfig.setup({
@@ -11,6 +15,7 @@ local function setup_plugins()
       'svelte',
       'volar',
       'jsonls',
+      'lua_ls'
     },
     automatic_installation = true,
   })
@@ -24,7 +29,7 @@ local function setup_behaviors()
   vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 
   -- Open the error popup after hovering for 250ms.
-  vim.o.updatetime = 250
+  vim.opt.updatetime = 250
   vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor"})]]
 
   -- Go to next/previous errors.
@@ -66,20 +71,20 @@ local function setup_servers()
     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
 
     -- Workspace management, idk what workspaces are for.
-    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-    vim.keymap.set('n', '<space>wl', function()
+    vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+    vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+    vim.keymap.set('n', '<leader>wl', function()
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, bufopts)
 
     -- Rename a variable throughout the file.
-    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
 
     -- Show code actions, e.g. "quick fixes".
-    vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
 
     -- Format the file
-    vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+    vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
   end
 
   -- Get the default LSP capabilities for Nvim's LSP client.
@@ -88,8 +93,15 @@ local function setup_servers()
   -- Extend the capabilities with completion.
   capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-  -- Pre-defined configurations for various language servers.
-  local lspconfig = require('lspconfig')
+  local lspSettings = {
+    lua_ls = {
+      Lua = {
+        completion = {
+          callSnippet = 'Replace'
+        }
+      }
+    }
+  }
 
   -- Configure each LSP with completion capababilities, e.g. autocomplete,
   -- and all the buffer attach settings, e.g. hover and show go to definition.
@@ -98,13 +110,12 @@ local function setup_servers()
     lspconfig[server].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      settings = lspSettings[server]
     })
   end
 
   -- See :help mason-lspconfig-dynamic-server-setup
-  masonLspConfig.setup_handlers({
-    default_handler,
-  })
+  masonLspConfig.setup_handlers({ default_handler })
 end
 
 

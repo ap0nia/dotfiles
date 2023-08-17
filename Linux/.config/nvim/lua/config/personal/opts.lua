@@ -1,6 +1,9 @@
 local M = {}
 
 function M.setup()
+  -- Set the leader key to spacebar.
+  vim.g.mapleader = ' '
+
   -- Enable 24-bit RGB color.
   vim.opt.termguicolors = true
 
@@ -30,12 +33,6 @@ function M.setup()
 
   -- Don't wrap lines that overflow the buffer.
   vim.opt.wrap = false
-
-  -- Load the colorscheme.
-  vim.cmd.colorscheme "catppuccin-mocha"
-
-  -- Enable transparency. Useful if e.g. terminal is also transparent.
-  vim.cmd.hi "Normal guibg=NONE ctermbg=NONE"
 end
 
 return M
