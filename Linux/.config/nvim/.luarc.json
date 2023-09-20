@@ -5,5 +5,5 @@
     "undodir",
     "lua-language-server"
   ],
-    "workspace.checkThirdParty": false
+  "workspace.checkThirdParty": false
 }

@@ -33,6 +33,8 @@ function M.setup()
 
   -- Don't wrap lines that overflow the buffer.
   vim.opt.wrap = false
+
+  vim.opt.colorcolumn = '90'
 end
 
 return M

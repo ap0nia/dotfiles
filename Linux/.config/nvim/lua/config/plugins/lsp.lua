@@ -1,6 +1,6 @@
 local lspconfig = require('lspconfig')
 local mason = require('mason')
-local masonLspConfig = require('mason-lspconfig')
+local mason_lspconfig = require('mason-lspconfig')
 local neodev = require('neodev')
 
 -- Setup the plugins.
@@ -9,13 +9,16 @@ local function setup_plugins()
 
   mason.setup()
 
-  masonLspConfig.setup({
+  mason_lspconfig.setup({
     ensure_installed = {
       'tsserver',
       'svelte',
       'volar',
       'jsonls',
-      'lua_ls'
+      'lua_ls',
+      -- https://github.com/mxsdev/nvim-dap-vscode-js/issues/57
+      'js-debug-adapter@v1.76.1',
+      -- 'js-debug-adapter'
     },
     automatic_installation = true,
   })
@@ -112,7 +115,7 @@ local function setup_servers()
   end
 
   -- See :help mason-lspconfig-dynamic-server-setup
-  masonLspConfig.setup_handlers({ default_handler })
+  mason_lspconfig.setup_handlers({ default_handler })
 end
 
 
