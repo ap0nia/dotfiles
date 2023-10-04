@@ -8,23 +8,10 @@
 CARGO_BIN=${HOME}/.cargo/bin
 LOCAL_BIN=${HOME}/.local/bin
 BUN_BIN=${BUN_INSTALL}/bin
+JAVA_BIN=/opt/homebrew/opt/openjdk@11/bin
 EMSDK=${HOME}/.local/sources/emsdk:${HOME}/.local/sources/emsdk/upstream/emscripten
 
-export PATH=${PATH}:${LOCAL_BIN}:${CARGO_BIN}:${BUN_BIN}:${EMSDK}
-
-
-#------------------------------------------------------------------------------------
-# WSL Pipe stuff. i.e. SSH, Discord.
-#------------------------------------------------------------------------------------
-# $HOME/.config/wsl/discord-relay
-
-# Where nipiperelay is located.
-# If you don't have it, see: https://github.com/jstarks/npiperelay#building-npiperelayexe
-export NPIPERELAY=/mnt/c/WSL/npiperelay.exe
-
-${HOME}/.config/wsl/ssh-agent-relay start
-export SSH_AUTH_SOCK=${HOME}/.ssh/wsl-ssh-agent.sock
-
+export PATH=${PATH}:${LOCAL_BIN}:${CARGO_BIN}:${BUN_BIN}:${EMSDK}:${JAVA_BIN}
 
 #------------------------------------------------------------------------------------
 # Terminal/Shell.
@@ -39,6 +26,9 @@ compinit
 #------------------------------------------------------------------------------------
 # Environment.
 #------------------------------------------------------------------------------------
+
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 . "$HOME/.cargo/env"
 
@@ -56,15 +46,9 @@ eval "$(starship init zsh)"
 
 export BUN_INSTALL="${HOME}/.bun"
 
+export DBUS_SESSION_BUS_ADDRESS='unix:path='$DBUS_LAUNCHD_SESSION_BUS_SOCKET
+
 #------------------------------------------------------------------------------------
 # Aliases.
 #------------------------------------------------------------------------------------
-
-# Always use LSDeluxe
 alias ls=lsd
-
-# `clip.exe` is from Windows's System32 folder.
-alias clip=clip.exe
-
-# `explorer.exe` is from Windows's System32 folder.
-alias exp=explorer.exe

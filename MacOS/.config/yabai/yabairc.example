@@ -1,0 +1,147 @@
+#!/usr/bin/env sh
+# make sure this file is executable!
+
+# Unload the macOS WindowManager process
+launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist > /dev/null 2>&1 &
+
+# YABAI STUFF
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
+yabai -m signal --add event=display_added action="sleep 1 && $HOME/Desktop/MyGithub/dotfiles/yabai/create_spaces.sh"
+yabai -m signal --add event=display_removed action="sleep 1 && $HOME/Desktop/MyGithub/dotfiles/yabai/create_spaces.sh"
+yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
+yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
+
+$HOME/Desktop/MyGithub/dotfiles/yabai/create_spaces.sh
+
+# the scripting-addition must be loaded manually if
+# you are running yabai on macOS Big Sur. Uncomment
+# the following line to have the injection performed
+# when the config is executed during startup.
+#
+# for this to work you must configure sudo such that
+# it will be able to run the command without password
+#
+# see this wiki page for information:
+#  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)
+#
+# sudo yabai --load-sa
+# yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
+## global settings
+# yabai -m config external_bar                 off
+
+# # 增加间隙主要是为显示 
+# # add 20 padding to the top and 0 padding to the bottom of every space located on the main display
+# yabai -m config external_bar main:18:0
+# # add 20 padding to the top and bottom of all spaces regardless of the display it belongs to
+# yabai -m config external_bar all:18:18
+
+
+######
+
+yabai -m config external_bar               all:37:0     \
+                window_border              on           \
+                mouse_follows_focus        off          \
+                focus_follows_mouse        off          \
+                window_origin_display      default      \
+                window_placement           second_child \
+                window_topmost             off          \
+                window_shadow              on        \
+                window_opacity             off           \
+                window_opacity_duration    0.0         \
+                active_window_opacity      1.0          \
+                normal_window_opacity      0.90         \
+                window_border_width        3            \
+                window_border_hidpi        on           \
+                window_border_radius       11           \
+                window_animation_duration  0.1          \
+                active_window_border_color 0xffe1e3e4   \
+                normal_window_border_color 0xff2a2f38   \
+                insert_feedback_color      0xff9dd274   \
+                split_ratio                0.50         \
+                auto_balance               off          \
+                mouse_modifier             fn           \
+                mouse_action1              move         \
+                mouse_action2              resize       \
+                mouse_drop_action          swap         \
+                                                        \
+                top_padding                20           \
+                bottom_padding             10           \
+                left_padding               10           \
+                right_padding              10           \
+                window_gap                 8
+
+
+# float system preferences. Most of these just diable Yabai form resizing them.
+# Do not manage some apps which are not resizable
+yabai -m rule --add app="^(LuLu|Vimac|Calculator|Software Update|Dictionary|VLC|System Preferences|System Settings|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice|App Store|Steam|Alfred|Activity Monitor)$" manage=off
+yabai -m rule --add app="^系统偏好设置$" sticky=on layer=above manage=off
+yabai -m rule --add app="^System Preferences$" sticky=on layer=above manage=off
+yabai -m rule --add app="^系统资讯$" sticky=on layer=above manage=off
+yabai -m rule --add app="^System Information$" sticky=on layer=above manage=off
+yabai -m rule --add app="^活动监视器$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Activity Monitor$" sticky=on layer=above manage=off
+yabai -m rule --add app="^日历$" sticky=on layer=normal manage=off
+yabai -m rule --add app="^IINA$" sticky=on layer=normal manage=off
+yabai -m rule --add app="^Hammerspoon$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
+yabai -m rule --add app="^计算器$" sticky=on layer=above manage=off
+# https://www.cockos.com/licecap/
+yabai -m rule --add app="^licecap$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Alfred Preferences$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Disk Utility$" sticky=on layer=above manage=off
+yabai -m rule --add app="^磁盘工具$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Path Finder$" manage=off
+yabai -m rule --add app="^TeamViewer$" sticky=off layer=above manage=off
+yabai -m rule --add app="^AppCleaner$" sticky=off layer=above manage=off
+yabai -m rule --add app="^iStat Menus$" sticky=off layer=above manage=off
+yabai -m rule --add app="^iStat Menus$" manage=off
+yabai -m rule --add app="^Flux$" manage=off
+yabai -m rule --add app="^Time Out$" manage=off
+yabai -m rule --add app="^perl_client_app$" manage=off
+yabai -m rule --add app="^CiscoSparkHelper$" manage=off
+yabai -m rule --add app="ygo|YGO" manage=off
+yabai -m rule --add app="^MyCard$" manage=off
+yabai -m rule --add app="^TradingView$" manage=off
+yabai -m rule --add app="^Vivaldi$" manage=off
+yabai -m rule --add app="^微信$" manage=off
+yabai -m rule --add app="^信息$" manage=off
+yabai -m rule --add app="^邮件$" manage=off
+yabai -m rule --add app="^GoLand$" manage=off
+yabai -m rule --add app="^PhpStorm$" manage=off
+yabai -m rule --add app="^IntelliJ IDEA$" manage=off
+yabai -m rule --add app="^JetBrains ToolBox$" manage=off
+yabai -m rule --add app="^Microsoft To Do$" manage=off
+yabai -m rule --add app="^1Password$" manage=off
+yabai -m rule --add app="^Typora$" manage=off
+yabai -m rule --add app="^FinalShell$" manage=off
+yabai -m rule --add app="^安装器$" manage=off
+yabai -m rule --add app="^网易云音乐$" manage=off
+yabai -m rule --add app="^QQ音乐$" manage=off
+yabai -m rule --add app="^App Store$" manage=off
+yabai -m rule --add app="^Keka$" manage=off
+yabai -m rule --add app="^预览$" manage=off
+yabai -m rule --add app="^阿里云盘$" manage=off
+yabai -m rule --add app="^Tailscale$" manage=off
+yabai -m rule --add app="^Microsoft Remote Desktop Beta$" manage=off
+yabai -m rule --add app="^Tencent Lemon Lite$" manage=off
+yabai -m rule --add app="^StrongVPN$" manage=off
+yabai -m rule --add app="^向日葵远程控制$" manage=off
+yabai -m rule --add app="^钉钉$" manage=off
+yabai -m rule --add app="^Thiro$" manage=off
+yabai -m rule --add app="^专注清单$" manage=off
+yabai -m rule --add app="^Creative Convert$" manage=off
+yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+yabai -m rule --add label="访达" app="^访达$" title="(拷贝|连接|移动|简介|Pref)" manage=off
+yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
+yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
+yabai -m rule --add label="关于本机" app="系统信息" title="关于本机" manage=off
+yabai -m rule --add label="Select file to save to" app="^Inkscape$" title="Select file to save to" manage=off
+
+yabai -m config layout                     bsp
+
+echo "yabai configuration loaded.."
+
+#END

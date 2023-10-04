@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m config layout bsp
