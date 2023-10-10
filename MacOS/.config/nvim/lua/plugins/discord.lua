@@ -8,7 +8,7 @@ return {
     auto_update         = true,
 
     -- Text displayed when hovered over the Neovim image
-    neovim_image_text   = "IDE-cels cope and seethe. Vim-bros stay winning!",
+    neovim_image_text   = "Neovim",
 
     -- Main image display (either "neovim" or "file")
     main_image          = "neovim",

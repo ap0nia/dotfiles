@@ -1,0 +1,12 @@
+[user]
+email = brianmv@uci.edu
+name = Aponia
+
+[core]
+editor = nvim
+
+[pull]
+rebase = false
+
+[init]
+defaultBranch = main

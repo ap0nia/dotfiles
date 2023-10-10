@@ -1,7 +1,20 @@
 return {
   "zbirenbaum/copilot.lua",
 
-  config = function()
-    require('config.plugins.copilot').setup()
-  end
+  opts = function()
+    return {
+      cmd = "Copilot",
+      event = "InsertEnter",
+      suggestion = {
+        auto_trigger = true,
+        keymap = {
+          accept = "<C-J>",
+        },
+      },
+      filetypes = {
+        javascript = true,
+        typescript = true,
+      }
+    }
+  end,
 }
