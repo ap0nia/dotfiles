@@ -15,6 +15,12 @@ return {
       end,
     },
     {
+      "theHamsta/nvim-dap-virtual-text",
+      config = function()
+        require("nvim-dap-virtual-text").setup()
+      end,
+    },
+    {
       'mxsdev/nvim-dap-vscode-js',
       config = function()
         require('dap-vscode-js').setup({
@@ -56,7 +62,10 @@ return {
 			protocol = "inspector",
 			console = "integratedTerminal",
 			outFiles = { "${workspaceFolder}/dist/**/*.js" },
-			runtimeExecutable = "${workspaceFolder}/node_modules/.bin/tsx",
+            -- runtimeExecutable = 'node',
+            -- runtimeArgs = { '--loader', 'ts-node/esm' },
+			-- runtimeExecutable = "${workspaceFolder}/node_modules/.bin/ts-node",
+			-- runtimeExecutable = "${workspaceFolder}/node_modules/.bin/tsx",
         },
         {
           type = "pwa-node",
@@ -67,5 +76,12 @@ return {
         },
       }
     end
+
+    vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, { silent = true, script = true })
+    vim.keymap.set('n', '<leader>B', dap.set_breakpoint, { silent = true, script = true })
+    vim.keymap.set('n', '<F5>', dap.continue, { silent = true, script = true })
+    vim.keymap.set('n', '<F10>', dap.step_over, { silent = true, script = true })
+    vim.keymap.set('n', '<F11>', dap.step_into, { silent = true, script = true })
+    vim.keymap.set('n', '<F12>', dap.step_out, { silent = true, script = true })
   end,
 }

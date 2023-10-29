@@ -16,9 +16,6 @@ local function setup_plugins()
       'volar',
       'jsonls',
       'lua_ls',
-      -- https://github.com/mxsdev/nvim-dap-vscode-js/issues/57
-      'js-debug-adapter@v1.76.1',
-      -- 'js-debug-adapter'
     },
     automatic_installation = true,
   })
