@@ -1,2 +1,30 @@
 google-drive
+alacritty
 keepassxc
+arc
+stow
+neovim
+tmux
+koekeishiya/formulae/yabai
+koekeishiya/formulae/skhd
+
+zathura --with-synctex
+zathura-pdf-poppler
+girara
+dbus
+
+discord
+messenger
+slack
+
+mysql
+
+homebrew/cask-fonts
+font-fira-code-nerd-font
+
+# cargo
+uutils-coreutils
+sheldon
+lsd
+fnm
+starship

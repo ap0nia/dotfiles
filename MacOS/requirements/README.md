@@ -1,0 +1,2 @@
+- Install homebrew
+- Install rustup
