@@ -23,17 +23,8 @@ return {
       mason.setup()
 
       mason_lspconfig.setup({
-        ensure_installed = {
-          'tsserver',
-          'svelte',
-          'volar',
-          'jsonls',
-          'lua_ls',
-          -- https://github.com/mxsdev/nvim-dap-vscode-js/issues/57
-          -- 'js-debug-adapter@v1.76.1',
-          -- 'js-debug-adapter'
-        },
-        automatic_installation = true,
+        ensure_installed = { },
+        automatic_installation = false,
       })
     end
 
