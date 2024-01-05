@@ -18,9 +18,6 @@ CARGO_BIN=${HOME}/.cargo/bin
 
 export PATH=${PATH}:${CARGO_BIN}
 
-export DBUS_SESSION_BUS_ADDRESS='unix:path='$DBUS_LAUNCHD_SESSION_BUS_SOCKET
-
-
 #------------------------------------------------------------------------------------
 # Dynamic.
 #------------------------------------------------------------------------------------
@@ -47,3 +44,10 @@ eval "$(starship init zsh)"
 # Aliases.
 #------------------------------------------------------------------------------------
 alias ls=lsd
+
+# bun completions
+[ -s "/Users/aponia/.bun/_bun" ] && source "/Users/aponia/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

@@ -8,11 +8,6 @@ tmux
 koekeishiya/formulae/yabai
 koekeishiya/formulae/skhd
 
-zathura --with-synctex
-zathura-pdf-poppler
-girara
-dbus
-
 discord
 messenger
 slack
@@ -28,3 +23,4 @@ sheldon
 lsd
 fnm
 starship
+tectonic
