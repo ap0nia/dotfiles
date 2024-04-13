@@ -11,11 +11,11 @@ local function setup_plugins()
 
   mason_lspconfig.setup({
     ensure_installed = {
-      'tsserver',
-      'svelte',
-      'volar',
-      'jsonls',
-      'lua_ls',
+      -- 'tsserver',
+      -- 'svelte',
+      -- 'volar',
+      -- 'jsonls',
+      -- 'lua_ls',
     },
     automatic_installation = true,
   })
@@ -95,6 +95,22 @@ local function setup_servers()
       Lua = {
         completion = {
           callSnippet = 'Replace'
+        }
+      }
+    },
+    jsonls = {
+      json = {
+        schemas = {
+          {
+            description = 'TypeScript compiler configuration file',
+            fileMatch = {'tsconfig.json', 'tsconfig.*.json'},
+            url = 'http://json.schemastore.org/tsconfig'
+          },
+          {
+            description = 'Node.js package.json file',
+            fileMatch = {'package.json'},
+            url = 'https://json.schemastore.org/package.json'
+          },
         }
       }
     }

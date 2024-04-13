@@ -68,3 +68,7 @@ alias clip=clip.exe
 
 # `explorer.exe` is from Windows's System32 folder.
 alias exp=explorer.exe
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
