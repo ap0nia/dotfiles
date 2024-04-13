@@ -10,14 +10,17 @@ return {
 
     return {
       sources = {
-        null_ls.builtins.formatting.prettier
+        null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.black,
+        null_ls.builtins.formatting.clang_format,
       },
 
-      on_attach = function(client)
-        if client.supports_method("textDocument/formatting") then
-          vim.keymap.set('n', '<leader>f', format, { noremap = true, silent = true })
-        end
-      end
+     on_attach = function(client, bufnr)
+       -- Enable formatting on sync
+       if client.supports_method("textDocument/formatting") then
+         vim.keymap.set('n', '<leader>f', format, { noremap = true, silent = true })
+       end
+     end
     }
   end
 }
