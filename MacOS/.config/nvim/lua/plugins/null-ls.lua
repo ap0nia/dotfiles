@@ -17,9 +17,9 @@ return {
 
      on_attach = function(client, bufnr)
        -- Enable formatting on sync
-       if client.supports_method("textDocument/formatting") then
-         vim.keymap.set('n', '<leader>f', format, { noremap = true, silent = true })
-       end
+       vim.keymap.set('n', '<leader>f', format, { noremap = true, silent = true })
+       -- if client.supports_method("textDocument/formatting") then
+       -- end
      end
     }
   end

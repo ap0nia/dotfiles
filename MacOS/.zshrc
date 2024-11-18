@@ -28,7 +28,7 @@ export PATH=${PATH}:${CARGO_BIN}
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Source dircolors to set the colors used for `ls`.
-eval "$(dircolors ~/.config/dircolors/nord.dircolors)"
+eval "$(coreutils dircolors ~/.config/dircolors/nord.dircolors)"
 
 # Start the node environment managed by fnm.
 eval "$(fnm env --use-on-cd)"
@@ -57,3 +57,7 @@ export PATH="$PATH:/Users/aponia/.local/bin"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# bun
+export BUN_INSTALL="$HOME/Library/Application Support/reflex/bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

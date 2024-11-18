@@ -35,6 +35,12 @@ function M.setup()
   vim.opt.wrap = false
 
   vim.opt.colorcolumn = '90'
+
+  vim.filetype.add {
+	filename = {
+		['Jenkinsfile'] = 'groovy'
+	}
+  }
 end
 
 return M

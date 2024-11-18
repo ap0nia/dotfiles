@@ -1,3 +1,9 @@
+vim.filetype.add({
+  extension = {
+    mdx = 'mdx'
+  }
+})
+
 local function ensure_lazy_installed()
   local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 

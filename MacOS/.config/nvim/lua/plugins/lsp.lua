@@ -97,12 +97,123 @@ return {
       -- Extend the capabilities with completion.
       capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
+      vim.lsp.set_log_level("debug")
+
       local lspSettings = {
-        lua_ls = {
-          Lua = {
-            completion = {
-              callSnippet = 'Replace'
+        ts_ls = {
+          -- autoUseWorkspaceTsdk = true,
+          plugins = {
+            {
+              name = '@mdx-js/typescript-plugin',
+              enableForWorkspaceTypeScriptVersions = true,
+              languages = {
+                'mdx',
+              }
+            },
+          },
+          globalPlugins = {
+            {
+              name = '@mdx-js/typescript-plugin',
+              enableForWorkspaceTypeScriptVersions = true,
+              languages = {
+                'mdx',
+              }
+            },
+          },
+          tsserver = {
+            plugins = {
+              {
+                name = '@mdx-js/typescript-plugin',
+                enableForWorkspaceTypeScriptVersions = true,
+                languages = {
+                  'mdx',
+                }
+              },
+            },
+            globalPlugins = {
+              {
+                name = '@mdx-js/typescript-plugin',
+                enableForWorkspaceTypeScriptVersions = true,
+                languages = {
+                  'mdx',
+                }
+              },
+            },
+          },
+          settings = {
+            plugins = {
+              {
+                name = '@mdx-js/typescript-plugin',
+                enableForWorkspaceTypeScriptVersions = true,
+                languages = {
+                  'mdx',
+                }
+              },
+            },
+            tsserver = {
+              plugins = {
+                {
+                  name = '@mdx-js/typescript-plugin',
+                  enableForWorkspaceTypeScriptVersions = true,
+                  languages = {
+                    'mdx',
+                  }
+                },
+              },
+              globalPlugins = {
+                {
+                  name = '@mdx-js/typescript-plugin',
+                  enableForWorkspaceTypeScriptVersions = true,
+                  languages = {
+                    'mdx',
+                  }
+                },
+              },
             }
+          },
+          filetypes = {
+            'javascript',
+            'javascriptreact',
+            'javascript.jsx',
+            'typescript',
+            'typescriptreact',
+            'typescript.tsx',
+            'mdx',
+          },
+        },
+        vtsls = {
+          settings = {
+            vtsls = {
+              autoUseWorkspaceTsdk = true,
+            }
+          },
+          filetypes = {
+            'javascript',
+            'javascriptreact',
+            'javascript.jsx',
+            'typescript',
+            'typescriptreact',
+            'typescript.tsx',
+            -- 'mdx',
+          },
+        },
+        mdx_analyzer = {
+          filetypes= {
+            "mdx"
+          },
+          settings = {
+            mdx = {
+              trace = {
+                server = {
+                  verbosity = "verbose",
+                }
+              }
+            }
+          }
+        },
+        Lua = {
+          completion = {
+            callSnippet = 'Replace'
           }
         }
       }
@@ -111,11 +222,12 @@ return {
       -- and all the buffer attach settings, e.g. hover and show go to definition.
       -- See :help lspconfig-setup
       local default_handler = function(server)
-        lspconfig[server].setup({
-          capabilities = capabilities,
-          on_attach = on_attach,
-          settings = lspSettings[server]
-        })
+        local config = lspSettings[server] or {}
+
+        config.capabilities = capabilities
+        config.on_attach = on_attach
+
+        lspconfig[server].setup(config)
       end
 
       -- See :help mason-lspconfig-dynamic-server-setup

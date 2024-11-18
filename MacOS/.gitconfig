@@ -10,3 +10,11 @@ rebase = false
 
 [init]
 defaultBranch = main
+
+[commit]
+gpgSign = true
+
+[gpg]
+format = "ssh"
+  [gpg "ssh"]
+  defaultKeyCommand = ssh-add -L
