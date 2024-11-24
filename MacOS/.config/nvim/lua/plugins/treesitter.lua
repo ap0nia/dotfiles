@@ -4,32 +4,41 @@ local function is_large_buffer(_, bufnr)
 end
 
 return {
-  "nvim-treesitter/nvim-treesitter",
+  {
+    "nvim-treesitter/nvim-treesitter",
 
-  build = ":TSUpdate",
+    build = ":TSUpdate",
 
-  config =  function ()
-    require('nvim-treesitter.configs').setup({
-      ensure_installed = {
-        "c",
-        "lua",
-        "vim",
-        "jsdoc",
-        "typescript",
-        "svelte"
-      },
+    config =  function ()
+      require('nvim-treesitter.configs').setup({
+        ensure_installed = {
+          "c",
+          "lua",
+          "vim",
+          "jsdoc",
+          "typescript",
+          "svelte"
+        },
 
-      sync_install = false,
+        sync_install = false,
 
-      highlight = {
-        enable = true,
-        disable = is_large_buffer
-      },
+        highlight = {
+          enable = true,
+          disable = is_large_buffer
+        },
 
-      indent = {
-        enable = true,
-        disable = is_large_buffer
-      },
-    })
-  end,
+        indent = {
+          enable = true,
+          disable = is_large_buffer
+        },
+      })
+    end,
+  },
+  {
+    "davidmh/mdx.nvim",
+    config = true,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter"
+    }
+  }
 }

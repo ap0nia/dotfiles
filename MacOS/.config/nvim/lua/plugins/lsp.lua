@@ -97,78 +97,19 @@ return {
       -- Extend the capabilities with completion.
       capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-      vim.lsp.set_log_level("debug")
-
       local lspSettings = {
-        ts_ls = {
-          -- autoUseWorkspaceTsdk = true,
-          plugins = {
-            {
-              name = '@mdx-js/typescript-plugin',
-              enableForWorkspaceTypeScriptVersions = true,
-              languages = {
-                'mdx',
-              }
-            },
-          },
-          globalPlugins = {
-            {
-              name = '@mdx-js/typescript-plugin',
-              enableForWorkspaceTypeScriptVersions = true,
-              languages = {
-                'mdx',
-              }
-            },
-          },
-          tsserver = {
-            plugins = {
-              {
-                name = '@mdx-js/typescript-plugin',
-                enableForWorkspaceTypeScriptVersions = true,
-                languages = {
-                  'mdx',
-                }
-              },
-            },
-            globalPlugins = {
-              {
-                name = '@mdx-js/typescript-plugin',
-                enableForWorkspaceTypeScriptVersions = true,
-                languages = {
-                  'mdx',
-                }
-              },
-            },
-          },
+        vtsls = {
           settings = {
-            plugins = {
-              {
-                name = '@mdx-js/typescript-plugin',
-                enableForWorkspaceTypeScriptVersions = true,
-                languages = {
-                  'mdx',
-                }
-              },
-            },
-            tsserver = {
-              plugins = {
-                {
-                  name = '@mdx-js/typescript-plugin',
-                  enableForWorkspaceTypeScriptVersions = true,
-                  languages = {
-                    'mdx',
-                  }
+            vtsls = {
+              autoUseWorkspaceTsdk = true,
+              tsserver = {
+                globalPlugins = {
+                  {
+                    name = '@mdx-js/typescript-plugin',
+                    languages = { 'mdx' }
+                  },
                 },
-              },
-              globalPlugins = {
-                {
-                  name = '@mdx-js/typescript-plugin',
-                  enableForWorkspaceTypeScriptVersions = true,
-                  languages = {
-                    'mdx',
-                  }
-                },
-              },
+              }
             }
           },
           filetypes = {
@@ -181,35 +122,8 @@ return {
             'mdx',
           },
         },
-        vtsls = {
-          settings = {
-            vtsls = {
-              autoUseWorkspaceTsdk = true,
-            }
-          },
-          filetypes = {
-            'javascript',
-            'javascriptreact',
-            'javascript.jsx',
-            'typescript',
-            'typescriptreact',
-            'typescript.tsx',
-            -- 'mdx',
-          },
-        },
         mdx_analyzer = {
-          filetypes= {
-            "mdx"
-          },
-          settings = {
-            mdx = {
-              trace = {
-                server = {
-                  verbosity = "verbose",
-                }
-              }
-            }
-          }
+          filetypes= { "mdx" },
         },
         Lua = {
           completion = {
