@@ -38,3 +38,7 @@ media-libs/harfbuzz
 ## Needed for VimTex
 
 USE="X" sys-apps/dbus
+
+## The best text editor
+
+app-editors/neovim
