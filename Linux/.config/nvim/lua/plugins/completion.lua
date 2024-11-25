@@ -9,6 +9,6 @@ return {
   },
 
   config = function()
-    require('config.plugins.completion').setup()
+    require('config.completion').setup()
   end
 }

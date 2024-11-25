@@ -3,7 +3,11 @@ local function format()
 end
 
 return {
-  'jose-elias-alvarez/null-ls.nvim',
+  'nvimtools/none-ls.nvim',
+
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+  },
 
   opts = function()
     local null_ls = require('null-ls')
@@ -16,9 +20,7 @@ return {
       },
 
       on_attach = function(client)
-        if client.supports_method("textDocument/formatting") then
-          vim.keymap.set('n', '<leader>f', format, { noremap = true, silent = true })
-        end
+        vim.keymap.set('n', '<leader>f', format, { noremap = true, silent = true })
       end
     }
   end

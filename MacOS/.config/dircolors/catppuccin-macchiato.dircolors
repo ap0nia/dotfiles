@@ -1,0 +1,310 @@
+# Catppuccin Macchiato theme for GNU dircolors
+# Author: Catppuccin (adapted by [Your Name])
+#
+# Colors based on Catppuccin Macchiato palette.
+
+COLORTERM ?*
+TERM Eterm
+TERM ansi
+TERM *color*
+TERM con[0-9]*x[0-9]*
+TERM cons25
+TERM console
+TERM cygwin
+TERM *direct*
+TERM dtterm
+TERM gnome
+TERM hurd
+TERM jfbterm
+TERM konsole
+TERM kterm
+TERM linux
+TERM linux-c
+TERM mlterm
+TERM putty
+TERM rxvt*
+TERM screen*
+TERM st
+TERM terminator
+TERM tmux*
+TERM vt48;2;98;114;164
+TERM xterm*
+
+## Documentation
+# Reference: http://www.mail-archive.com/bug-coreutils@gnu.org/msg11030.html)
+#
+# standard colors
+#
+# Attribute codes:
+# 00=none 01=bold 04=underscore 05=blink 07=reverse 08=concealed
+# Text color codes:
+# 30=black 31=red 32=green 33=yellow 34=blue 35=magenta 36=cyan 37=white
+# Background color codes:
+# 40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
+#
+# 256 colors
+#
+# Text 256 color coding:
+# 38;5;COLOR_NUMBER
+# Background 256 color coding:
+# 48;5;COLOR_NUMBER
+#
+# Example basic: 45;5;147;01 - lavender background, bold
+# Example 256: 48;5;167;38;5;193,01 - red background, lime-green text, underscore
+# 
+#------------------------------------------------------------------------------
+# ANSI escape codes (ISO 6429) (*: rarely supported)
+# References:   http://en.wikipedia.org/wiki/ANSI_escape_code
+#               http://ethanschoonover.com/solarized
+#------------------------------------------------------------------------------
+# Attributes            Text Colors     Solarized Colors    Hex (RGB) Color
+# ----------            -----------     ----------------    ---------------
+# 00 : Reset/Normal     30 : black      base02  / base03    073642 / 002b36
+# 01 : Bright           31 : red        red     / orange    dc322f / cb4b16
+# 02*: Faint            32 : green      green   / base01    859900 / 586e75
+# 03*: Italic           33 : yellow     yellow  / base00    b58900 / 657b83
+# 04 : Underline        34 : blue       blue    / base0     268bd2 / 839496
+# 05 : Blink            35 : magenta    magenta / violet    d33682 / 6c71c4
+# 06*: Blink (rapid)    36 : cyan       cyan    / base1     2aa198 / 93a1a1
+# 07 : Invert fg/bg     37 : white      base2   / base3     eee8d5 / fdf6e3
+# 08*: Conceal          38 : 256-color
+# 09*: Crossed-out      39 : Default    (Note: 40-49 denote background colors)
+#------------------------------------------------------------------------------
+#
+# Labels     | Hex      | RGB (Red, Green, Blue) | HSL (Hue, Saturation, Lightness)
+# -----------|----------|------------------------|---------------------------------
+# Rosewater  | #f5e0dc  | rgb(245, 224, 220)     | hsl(10, 56%, 91%)
+# Flamingo   | #f2cdcd  | rgb(242, 205, 205)     | hsl(0, 59%, 88%)
+# Pink       | #f5c2e7  | rgb(245, 194, 231)     | hsl(316, 72%, 86%)
+# Mauve      | #cba6f7  | rgb(203, 166, 247)     | hsl(267, 84%, 81%)
+# Red        | #f38ba8  | rgb(243, 139, 168)     | hsl(343, 81%, 75%)
+# Maroon     | #eba0ac  | rgb(235, 160, 172)     | hsl(350, 65%, 77%)
+# Peach      | #fab387  | rgb(250, 179, 135)     | hsl(23, 92%, 75%)
+# Yellow     | #f9e2af  | rgb(249, 226, 175)     | hsl(41, 86%, 83%)
+# Green      | #a6e3a1  | rgb(166, 227, 161)     | hsl(115, 54%, 76%)
+# Teal       | #94e2d5  | rgb(148, 226, 213)     | hsl(170, 57%, 73%)
+# Sky        | #89dceb  | rgb(137, 220, 235)     | hsl(189, 71%, 73%)
+# Sapphire   | #74c7ec  | rgb(116, 199, 236)     | hsl(199, 76%, 69%)
+# Blue       | #89b4fa  | rgb(137, 180, 250)     | hsl(217, 92%, 76%)
+# Lavender   | #b4befe  | rgb(180, 190, 254)     | hsl(232, 97%, 85%)
+# Text       | #cdd6f4  | rgb(205, 214, 244)     | hsl(226, 64%, 88%)
+# Subtext1   | #bac2de  | rgb(186, 194, 222)     | hsl(227, 35%, 80%)
+# Subtext0   | #a6adc8  | rgb(166, 173, 200)     | hsl(228, 24%, 72%)
+# Overlay2   | #9399b2  | rgb(147, 153, 178)     | hsl(228, 17%, 64%)
+# Overlay1   | #7f849c  | rgb(127, 132, 156)     | hsl(230, 13%, 55%)
+# Overlay0   | #6c7086  | rgb(108, 112, 134)     | hsl(231, 11%, 47%)
+# Surface2   | #585b70  | rgb(88, 91, 112)       | hsl(233, 12%, 39%)
+# Surface1   | #45475a  | rgb(69, 71, 90)        | hsl(234, 13%, 31%)
+# Surface0   | #313244  | rgb(49, 50, 68)        | hsl(237, 16%, 23%)
+# Base       | #1e1e2e  | rgb(30, 30, 46)        | hsl(240, 21%, 15%)
+# Mantle     | #181825  | rgb(24, 24, 37)        | hsl(240, 21%, 12%)
+# Crust      | #11111b  | rgb(17, 17, 27)        | hsl(240, 23%, 9%)
+
+
+#------------------------------------------------------------------------------
+# Global defaults.
+#------------------------------------------------------------------------------
+
+NORMAL 00
+RESET  0
+
+#------------------------------------------------------------------------------
+# File types.
+#------------------------------------------------------------------------------
+
+# Regular files
+FILE 00                                  # Normal
+
+# Directory
+DIR  01;38;2;180;190;254                 # Bold;Foreground;TrueColor;Lavendar
+
+# Symbolic link
+LINK 01;38;2;116;199;236                 # Bold;Foreground;TrueColor;Sky
+
+# Hard link
+MULTIHARDLINK 01;38;2;137;180;250        # Bold;Foreground;TrueColor;Blue
+
+# Pipe
+FIFO 48;2;49;50;68;38;2;249;226;175      # Background;TrueColor;Surface0;Foreground;TrueColor;Yellow
+
+# Socket
+SOCK 01;38;2;245;194;231                 # Bold;Foreground;TrueColor;Pink
+
+# Door (Solaris)
+# https://docs.oracle.com/cd/E36784_01/html/E36861/gmhhn.html
+DOOR 01;38;2;245;194;231                 # Bold;Foreground;TrueColor;Pink
+
+# Block device driver
+BLK 01;38;2;249;226;175;48;2;49;50;68    # Bold;Foreground;TrueColor;Yellow;Background;Surface0
+
+# Character device driver
+CHR 01;38;2;249;226;175;48;2;49;50;68    # Bold;Foreground;TrueColor;Yellow;Background;Surface0
+
+# Symlink to nonexistent file, or non-stat'able file
+ORPHAN 01;38;2;243;139;168 # Bold;Foreground;TrueColor;Red;Background;Surface0
+
+# Files that orphaned files point to
+MISSING 01;38;2;243;139;168;48;2;49;50;68
+
+# File that with setuid permissions (u+s)
+SETUID 38;2;49;50;68;48;2;243;139;168     # Foreground;TrueColor;Surface0;Background;TrueColor;Red
+
+# File that with setgid permisions (g+s)
+SETGID 38;2;49;50;68;48;2;249;226;175     # Foreground;TrueColor;Surface0;Background;TrueColor;Yellow
+
+# File with capability (very expensive to lookup)
+CAPABILITY 00
+
+# Directory that is sticky and other-writable (+t,o+w)
+STICKY_OTHER_WRITABLE 38;2;49;50;68;48;2;148;226;213  # Foreground;TrueColor;Surface0;Background;TrueColor;Teal
+
+# Directory that is other-writable (o+w) and not sticky
+OTHER_WRITABLE 38;2;49;50;68;48;2;148;226;213         # Foreground;TrueColor;Surface0;Background;TrueColor;Teal
+
+# Directory with the sticky bit set (+t) and not other-writable
+STICKY 38;2;49;50;68;48;2;203;166;247                 # Foreground;TrueColor;Surface0;Background;TrueColor;Mauve
+
+EXEC 01;38;2;166;227;161                              # Bold;Foreground;TrueColor;Green
+
+#------------------------------------------------------------------------------
+# File extensions and formats.
+# https://wiki.xiph.org/MIME_Types_and_File_Extensions
+#------------------------------------------------------------------------------
+
+# Archives and other compressed files - Bold;TrueColor;Maroon
+.tar  01;38;2;235;160;172
+.tgz  01;38;2;235;160;172
+.arc  01;38;2;235;160;172
+.arj  01;38;2;235;160;172
+.taz  01;38;2;235;160;172
+.lha  01;38;2;235;160;172
+.lz4  01;38;2;235;160;172
+.lzh  01;38;2;235;160;172
+.lzma 01;38;2;235;160;172
+.tlz  01;38;2;235;160;172
+.txz  01;38;2;235;160;172
+.tzo  01;38;2;235;160;172
+.t7z  01;38;2;235;160;172
+.zip  01;38;2;235;160;172
+.z    01;38;2;235;160;172
+.dz   01;38;2;235;160;172
+.gz   01;38;2;235;160;172
+.lrz  01;38;2;235;160;172
+.lz   01;38;2;235;160;172
+.lzo  01;38;2;235;160;172
+.xz   01;38;2;235;160;172
+.zst  01;38;2;235;160;172
+.tzst 01;38;2;235;160;172
+.bz2  01;38;2;235;160;172
+.bz   01;38;2;235;160;172
+.tbz  01;38;2;235;160;172
+.tbz2 01;38;2;235;160;172
+.tz   01;38;2;235;160;172
+.deb  01;38;2;235;160;172
+.rpm  01;38;2;235;160;172
+.jar  01;38;2;235;160;172
+.war  01;38;2;235;160;172
+.ear  01;38;2;235;160;172
+.sar  01;38;2;235;160;172
+.rar  01;38;2;235;160;172
+.alz  01;38;2;235;160;172
+.ace  01;38;2;235;160;172
+.zoo  01;38;2;235;160;172
+.cpio 01;38;2;235;160;172
+.7z   01;38;2;235;160;172
+.rz   01;38;2;235;160;172
+.cab  01;38;2;235;160;172
+.wim  01;38;2;235;160;172
+.swm  01;38;2;235;160;172
+.dwm  01;38;2;235;160;172
+.esd  01;38;2;235;160;172
+
+# Images - Bold;Foreground;TrueColor;Pink
+.avif  01;38;2;245;194;231
+.jpg   01;38;2;245;194;231
+.jpeg  01;38;2;245;194;231
+.mjpg  01;38;2;245;194;231
+.mjpeg 01;38;2;245;194;231
+.gif   01;38;2;245;194;231
+.bmp   01;38;2;245;194;231
+.pbm   01;38;2;245;194;231
+.pgm   01;38;2;245;194;231
+.ppm   01;38;2;245;194;231
+.tga   01;38;2;245;194;231
+.xbm   01;38;2;245;194;231
+.xpm   01;38;2;245;194;231
+.tif   01;38;2;245;194;231
+.tiff  01;38;2;245;194;231
+.png   01;38;2;245;194;231
+.svg   01;38;2;245;194;231
+.svgz  01;38;2;245;194;231
+.mng   01;38;2;245;194;231
+.pcx   01;38;2;245;194;231
+.mov   01;38;2;245;194;231
+.mpg   01;38;2;245;194;231
+.mpeg  01;38;2;245;194;231
+.m2v   01;38;2;245;194;231
+.mkv   01;38;2;245;194;231
+.webm  01;38;2;245;194;231
+.webp  01;38;2;245;194;231
+.ogm   01;38;2;245;194;231
+.mp4   01;38;2;245;194;231
+.m4v   01;38;2;245;194;231
+.mp4v  01;38;2;245;194;231
+.vob   01;38;2;245;194;231
+.qt    01;38;2;245;194;231
+.nuv   01;38;2;245;194;231
+.wmv   01;38;2;245;194;231
+.asf   01;38;2;245;194;231
+.rm    01;38;2;245;194;231
+.rmvb  01;38;2;245;194;231
+.flc   01;38;2;245;194;231
+.avi   01;38;2;245;194;231
+.fli   01;38;2;245;194;231
+.flv   01;38;2;245;194;231
+.gl    01;38;2;245;194;231
+.dl    01;38;2;245;194;231
+.xcf   01;38;2;245;194;231
+.xwd   01;38;2;245;194;231
+.yuv   01;38;2;245;194;231
+.cgm   01;38;2;245;194;231
+.emf   01;38;2;245;194;231
+.ogv   01;38;2;245;194;231
+.ogx   01;38;2;245;194;231
+
+# Audio - Reset;Foreground;TrueColor;Sky
+.aac  00;38;2;137;220;235
+.au   00;38;2;137;220;235
+.flac 00;38;2;137;220;235
+.m4a  00;38;2;137;220;235
+.mid  00;38;2;137;220;235
+.midi 00;38;2;137;220;235
+.mka  00;38;2;137;220;235
+.mp3  00;38;2;137;220;235
+.mpc  00;38;2;137;220;235
+.ogg  00;38;2;137;220;235
+.ra   00;38;2;137;220;235
+.wav  00;38;2;137;220;235
+.oga  00;38;2;137;220;235
+.opus 00;38;2;137;220;235
+.spx  00;38;2;137;220;235
+.xspf 00;38;2;137;220;235
+
+# Backup files - Reset;Foreground;TrueColor;SubText0
+*~         00;38;2;166;173;200
+*#         00;38;2;166;173;200
+.bak       00;38;2;166;173;200
+.old       00;38;2;166;173;200
+.orig      00;38;2;166;173;200
+.part      00;38;2;166;173;200
+.rej       00;38;2;166;173;200
+.swp       00;38;2;166;173;200
+.tmp       00;38;2;166;173;200
+.dpkg-dist 00;38;2;166;173;200
+.dpkg-old  00;38;2;166;173;200
+.ucf-dist  00;38;2;166;173;200
+.ucf-new   00;38;2;166;173;200
+.ucf-old   00;38;2;166;173;200
+.rpmnew    00;38;2;166;173;200
+.rpmorig   00;38;2;166;173;200
+.rpmsave   00;38;2;166;173;200

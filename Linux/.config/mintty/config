@@ -1,0 +1,8 @@
+ThemeFile=mocha
+Font=FiraCode Nerd Font Mono
+FontHeight=14
+BellType=0
+ConfirmExit=yes
+Scrollbar=none
+CtrlShiftShortcuts=yes
+CursorType=block

@@ -3,7 +3,11 @@ local function format()
 end
 
 return {
-  'jose-elias-alvarez/null-ls.nvim',
+  'nvimtools/none-ls.nvim',
+
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+  },
 
   opts = function()
     local null_ls = require('null-ls')
@@ -11,16 +15,13 @@ return {
     return {
       sources = {
         null_ls.builtins.formatting.prettier,
-        null_ls.builtins.formatting.black,
         null_ls.builtins.formatting.clang_format,
+        null_ls.builtins.formatting.black
       },
 
-     on_attach = function(client, bufnr)
-       -- Enable formatting on sync
-       vim.keymap.set('n', '<leader>f', format, { noremap = true, silent = true })
-       -- if client.supports_method("textDocument/formatting") then
-       -- end
-     end
+      on_attach = function(client)
+        vim.keymap.set('n', '<leader>f', format, { noremap = true, silent = true })
+      end
     }
   end
 }

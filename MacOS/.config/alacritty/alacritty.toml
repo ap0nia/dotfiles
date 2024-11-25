@@ -1,4 +1,5 @@
-import = ["/Users/aponia/.config/alacritty/catppuccin/catppuccin-macchiato.toml"]
+[general]
+import = [ "./catppuccin/catppuccin-mocha.toml" ]
 
 [font]
 size = 13.0
